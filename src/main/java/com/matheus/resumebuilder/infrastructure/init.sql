@@ -12,5 +12,5 @@ CREATE TABLE IF NOT EXISTS sentence(
     resume_id UUID,
     FOREIGN KEY (resume_id) REFERENCES resume(id),
     text VARCHAR(1000),
-    sentence_type VARCHAR(20)
+    sentence_type VARCHAR(3)
 );
