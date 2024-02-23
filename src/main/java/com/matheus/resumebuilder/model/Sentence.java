@@ -1,7 +1,6 @@
 package com.matheus.resumebuilder.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Objects;
 import java.util.UUID;

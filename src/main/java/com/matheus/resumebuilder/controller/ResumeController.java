@@ -43,14 +43,13 @@ public class ResumeController {
     }
 
     @PutMapping("{id}")
-    public Resume update(@PathVariable UUID id, @RequestBody final Resume resume) {
+    public Resume update(@PathVariable final UUID id, @RequestBody final Resume resume) {
         return this.resumeService.update(id, resume);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<?> deleteById(@PathVariable UUID id) {
+    public ResponseEntity<?> deleteById(@PathVariable final UUID id) {
         this.resumeService.deleteById(id);
         return ResponseEntity.ok().build();
-
     }
 }

@@ -25,7 +25,7 @@ public class Resume {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy="resume", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "resume", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Sentence> sentences;
 

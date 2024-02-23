@@ -22,24 +22,24 @@ public class ResumeService {
         return this.resumeRepository.findAll();
     }
 
-    public Resume findById(UUID id) {
+    public Resume findById(final UUID id) {
         return this.resumeRepository.findById(id).orElse(null);
     }
 
     @Transactional
-    public Resume create(Resume resume) {
+    public Resume create(final Resume resume) {
         resume.setId(null);
         return this.resumeRepository.save(resume);
     }
 
     @Transactional
-    public Resume update(UUID id, Resume resume) {
+    public Resume update(final UUID id, final Resume resume) {
         resume.setId(id);
         return this.resumeRepository.save(resume);
     }
 
     @Transactional
-    public void deleteById(UUID id) {
+    public void deleteById(final UUID id) {
         this.resumeRepository.deleteById(id);
     }
 }
