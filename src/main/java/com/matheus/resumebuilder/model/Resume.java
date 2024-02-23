@@ -1,66 +1,42 @@
 package com.matheus.resumebuilder.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
 public class Resume {
 
-    private String contactInfo;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
-    private String name;
-
-    private List<Section> sections;
-
-    public Resume() {
-
-    }
-
-    public Resume(final String name, final String contactInfo) {
-        this.name = name;
-        this.contactInfo = contactInfo;
-    }
-
-    public Resume(final String name) {
-        this.name = name;
-    }
-
-    public Resume(final List<Section> sections) {
-        this.sections = sections;
-    }
-
-    public String getContactInfo() {
-        return contactInfo;
-    }
-
-    public void setContactInfo(String contactInfo) {
-        this.contactInfo = contactInfo;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Section> getSections() {
-        return sections;
-    }
-
-    public void setSections(String contactInfo, String name, List<Section> sections) {
-        this.sections = sections;
-    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="resume", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Sentence> sentences;
 
     @Override public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Resume resume)) return false;
-        return Objects.equals(getContactInfo(), resume.getContactInfo()) &&
-               Objects.equals(getName(), resume.getName()) &&
-               Objects.equals(getSections(), resume.getSections());
+        return Objects.equals(getId(), resume.getId()) &&
+               Objects.equals(getSentences(), resume.getSentences());
     }
 
     @Override public int hashCode() {
-        return Objects.hash(getContactInfo(), getName(), getSections());
+        return Objects.hash(getId());
     }
 }
