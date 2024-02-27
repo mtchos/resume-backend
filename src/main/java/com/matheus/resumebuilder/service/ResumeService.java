@@ -2,13 +2,11 @@ package com.matheus.resumebuilder.service;
 
 import com.matheus.resumebuilder.model.Resume;
 import com.matheus.resumebuilder.repository.ResumeRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service

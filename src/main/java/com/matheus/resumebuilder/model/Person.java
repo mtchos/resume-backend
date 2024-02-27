@@ -1,10 +1,8 @@
 package com.matheus.resumebuilder.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,22 +13,19 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-public class Resume {
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @ManyToOne
-    @JoinColumn(name = "person_id")
-    @JsonBackReference
-    private Person person;
-
-    @OneToMany(mappedBy = "resume", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<Section> sections;
+    private List<Resume> resumes;
 
-    private String name;
+    private String username;
 
-    private Boolean isActive;
+    private String password;
+
+    private String email;
 }

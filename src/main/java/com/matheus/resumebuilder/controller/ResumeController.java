@@ -1,23 +1,14 @@
 package com.matheus.resumebuilder.controller;
 
+import com.matheus.resumebuilder.model.Person;
 import com.matheus.resumebuilder.model.Resume;
-import com.matheus.resumebuilder.model.Sentence;
+import com.matheus.resumebuilder.service.PersonService;
 import com.matheus.resumebuilder.service.ResumeService;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -26,6 +17,8 @@ public class ResumeController {
 
     @Autowired
     private ResumeService resumeService;
+
+    @Autowired PersonService personService;
 
     @GetMapping
     public List<Resume> findAll() {
@@ -39,6 +32,8 @@ public class ResumeController {
 
     @PostMapping
     public Resume create(@RequestBody final Resume resume) {
+        Person person = personService.findById(resume.getPerson().getId());
+        resume.setPerson(person);
         return this.resumeService.create(resume);
     }
 
