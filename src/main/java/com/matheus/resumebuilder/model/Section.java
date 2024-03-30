@@ -1,9 +1,7 @@
 package com.matheus.resumebuilder.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.matheus.resumebuilder.model.type.ContentType;
 import jakarta.persistence.*;
 import lombok.Getter;
