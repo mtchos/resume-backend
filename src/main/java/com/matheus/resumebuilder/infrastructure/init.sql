@@ -1,3 +1,5 @@
+ALTER USER postgres PASSWORD 'postgres';
+
 DROP DATABASE IF EXISTS resumebuilder;
 CREATE DATABASE resumebuilder;
 
