@@ -1,9 +1,12 @@
-import React from 'react';
-import { BasicProps } from '@/component/interface/BasicProps';
+import React, { ComponentProps, PropsWithChildren } from 'react';
 
-export default function SectionTitle({ children, ...props }: React.PropsWithChildren<BasicProps>) {
+interface HeadingProps extends ComponentProps<'h3'> {}
+
+interface HeadingPropsWithChildren extends PropsWithChildren<HeadingProps> {}
+
+export default function SectionTitle({ children, ...props }: HeadingPropsWithChildren) {
   return (
-    <h3 className="font-sans font-bold text-2xl" {...props}>
+    <h3 {...props} className="font-sans font-bold text-2xl">
       {children}
     </h3>
   );

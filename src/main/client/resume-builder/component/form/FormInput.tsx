@@ -1,9 +1,7 @@
-import { BasicProps } from '@/component/interface/BasicProps';
+import React, { ComponentProps } from 'react';
 
-interface FormInputProps extends BasicProps {
-  placeholder?: string;
-}
+interface FormInputProps extends ComponentProps<'input'> {}
 
-export default function FormInput({ placeholder, ...props }: FormInputProps) {
-  return <input type="text" placeholder={placeholder} {...props} />;
+export default function FormInput({ ...props }: FormInputProps) {
+  return <input type="text" placeholder={props.placeholder} {...props} />;
 }

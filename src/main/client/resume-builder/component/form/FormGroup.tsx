@@ -1,6 +1,9 @@
-import { BasicProps } from '@/component/interface/BasicProps';
-import React from 'react';
+import React, { ComponentProps, PropsWithChildren } from 'react';
 
-export default function FormGroup({ children, ...props }: React.PropsWithChildren<BasicProps>) {
+interface FormGroupProps extends ComponentProps<'fieldset'> {}
+
+interface FormGroupWithProps extends PropsWithChildren<FormGroupProps> {}
+
+export default function FormGroup({ children, ...props }: FormGroupWithProps) {
   return <fieldset {...props}>{children}</fieldset>;
 }

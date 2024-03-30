@@ -1,7 +1,10 @@
-import React from 'react';
-import { BasicProps } from '@/component/interface/BasicProps';
+import React, { ComponentProps, PropsWithChildren } from 'react';
 
-export default function FormLabel({ children, ...props }: React.PropsWithChildren<BasicProps>) {
+interface FormLabelProps extends ComponentProps<'label'> {}
+
+interface FormLabelPropsWithChildren extends PropsWithChildren<FormLabelProps> {}
+
+export default function FormLabel({ children, ...props }: FormLabelPropsWithChildren) {
   return (
     <label htmlFor="" {...props}>
       {children}

@@ -1,10 +1,9 @@
-import React from 'react';
-import { BasicProps } from '@/component/interface/BasicProps';
+import React, { ComponentProps, PropsWithChildren } from 'react';
 
-export default function Form({ children, ...props }: React.PropsWithChildren<BasicProps>) {
-  return (
-    <form action="" {...props}>
-      {children}
-    </form>
-  );
+interface FormProps extends ComponentProps<'form'> {}
+
+interface FormPropsWithChildren extends PropsWithChildren<FormProps> {}
+
+export default function Form({ children, ...props }: FormPropsWithChildren) {
+  return <form {...props}>{children}</form>;
 }
