@@ -10,7 +10,7 @@ The project is divided in three parts.
 
 - The backend is a [Spring Boot](https://spring.io/projects/spring-boot/) project managed by **Maven**.
 
-- The frontend is [Next.js](https://spring.io/projects/spring-boot/) project managed by **npm**.
+- The frontend is [React](https://react.dev/) project managed by **npm**.
 
 - When in doubt run in the order the commands appears.
 
