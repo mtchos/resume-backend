@@ -6,11 +6,13 @@ A website that assists you in writing crispy resumes that will eventually make y
 
 The project is divided in three parts.
 
-- The database runs inside a **Docker** image.
+- The database runs inside a [Docker](https://www.docker.com/) image.
 
-- The backend is a **Spring Boot** project managed by **Maven**.
+- The backend is a [Spring Boot](https://spring.io/projects/spring-boot/) project managed by **Maven**.
 
-- The frontend is **Next.js** project managed by **npm**.
+- The frontend is [Next.js](https://spring.io/projects/spring-boot/) project managed by **npm**.
+
+- When in doubt run in the order the commands appears.
 
 ## The database
 
