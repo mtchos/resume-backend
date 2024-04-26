@@ -3,7 +3,7 @@ import {IPerson} from "../component/IPerson.tsx";
 import {AxiosResponse} from "axios";
 
 export const PersonService = {
-  findAll: (): Promise<AxiosResponse<IPerson>> => {
+  findAll: (): Promise<AxiosResponse<IPerson[]>> => {
     return API.get("person");
   },
   findById: (id: string) => {
