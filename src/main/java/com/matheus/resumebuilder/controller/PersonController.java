@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("person")
+@RequestMapping("persons")
 public class PersonController {
 
     @Autowired

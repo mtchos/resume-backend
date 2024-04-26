@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("resume")
+@RequestMapping("resumes")
 public class ResumeController {
 
     @Autowired

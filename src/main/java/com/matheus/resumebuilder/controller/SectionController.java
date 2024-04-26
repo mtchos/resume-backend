@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping ("section")
+@RequestMapping ("sections")
 public class SectionController {
 
     @Autowired
