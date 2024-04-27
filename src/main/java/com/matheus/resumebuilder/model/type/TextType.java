@@ -1,10 +1,10 @@
 package com.matheus.resumebuilder.model.type;
 
-public enum ContentType {
+public enum TextType {
 
-    TEXT,
+    SENTENCE,
 
     LIST,
 
-    BULLET_POINT
+    BULLET
 }

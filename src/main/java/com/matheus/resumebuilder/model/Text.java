@@ -1,6 +1,7 @@
 package com.matheus.resumebuilder.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.matheus.resumebuilder.model.type.TextType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +11,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-public class Content {
+public class Text {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,6 +23,8 @@ public class Content {
     private Section section;
 
     private String content;
+
+    private TextType type;
 
     private String place;
 

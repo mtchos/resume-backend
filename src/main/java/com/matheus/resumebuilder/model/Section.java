@@ -2,7 +2,7 @@ package com.matheus.resumebuilder.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.matheus.resumebuilder.model.type.ContentType;
+import com.matheus.resumebuilder.model.type.SectionType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,9 +26,9 @@ public class Section {
 
     @OneToMany(mappedBy = "section", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<Content> contents;
+    private List<Text> texts;
 
-    private ContentType contentType;
+    private SectionType type;
 
     private Integer displayOrder;
 }
