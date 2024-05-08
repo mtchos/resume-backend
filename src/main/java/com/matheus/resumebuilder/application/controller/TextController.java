@@ -1,7 +1,7 @@
-package com.matheus.resumebuilder.controller;
+package com.matheus.resumebuilder.application.controller;
 
-import com.matheus.resumebuilder.model.Text;
-import com.matheus.resumebuilder.service.TextService;
+import com.matheus.resumebuilder.business.entity.Text;
+import com.matheus.resumebuilder.business.service.TextService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

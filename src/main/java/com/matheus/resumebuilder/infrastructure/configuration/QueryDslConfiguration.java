@@ -1,4 +1,4 @@
-package com.matheus.resumebuilder.configuration;
+package com.matheus.resumebuilder.infrastructure.configuration;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
