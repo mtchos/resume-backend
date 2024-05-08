@@ -1,7 +1,6 @@
 package com.matheus.resumebuilder.business.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.matheus.resumebuilder.business.entity.category.TextCategory;
 import com.matheus.resumebuilder.business.entity.common.TimestampableEntity;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -22,6 +21,4 @@ public class Text extends TimestampableEntity {
     private Section section;
 
     private String content;
-
-    private TextCategory type;
 }
