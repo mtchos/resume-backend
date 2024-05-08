@@ -1,7 +1,7 @@
-package com.matheus.resumebuilder.service;
+package com.matheus.resumebuilder.business.service;
 
-import com.matheus.resumebuilder.model.Person;
-import com.matheus.resumebuilder.repository.PersonRepository;
+import com.matheus.resumebuilder.application.dao.PersonDao;
+import com.matheus.resumebuilder.business.entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,29 +13,29 @@ import java.util.UUID;
 public class PersonService {
 
     @Autowired
-    private PersonRepository personRepository;
+    private PersonDao personDao;
 
     public List<Person> findAll() {
-        return this.personRepository.findAll();
+        return this.personDao.findAll();
     }
 
     public Person findById(final UUID id) {
-        return this.personRepository.findById(id).orElse(null);
+        return this.personDao.findById(id).orElse(null);
     }
 
     @Transactional
     public Person create(final Person person) {
-        return this.personRepository.save(person);
+        return this.personDao.save(person);
     }
 
     @Transactional
     public Person update(final UUID id, Person person) {
         person.setId(id);
-        return this.personRepository.save(person);
+        return this.personDao.save(person);
     }
 
     @Transactional
     public void deleteById(final UUID id) {
-        this.personRepository.deleteById(id);
+        this.personDao.deleteById(id);
     }
 }

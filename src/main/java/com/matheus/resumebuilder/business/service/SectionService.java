@@ -1,7 +1,7 @@
-package com.matheus.resumebuilder.service;
+package com.matheus.resumebuilder.business.service;
 
-import com.matheus.resumebuilder.model.Section;
-import com.matheus.resumebuilder.repository.SectionRepository;
+import com.matheus.resumebuilder.application.dao.SectionDao;
+import com.matheus.resumebuilder.business.entity.Section;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,26 +12,26 @@ import java.util.UUID;
 public class SectionService {
 
     @Autowired
-    private SectionRepository sectionRepository;
+    private SectionDao sectionDao;
 
     public List<Section> findAll() {
-        return this.sectionRepository.findAll();
+        return this.sectionDao.findAll();
     }
 
     public Section findById(final UUID id) {
-        return this.sectionRepository.findById(id).orElse(null);
+        return this.sectionDao.findById(id).orElse(null);
     }
 
     public Section create(final Section section) {
-        return this.sectionRepository.save(section);
+        return this.sectionDao.save(section);
     }
 
     public Section update(final UUID id, final Section section) {
         section.setId(id);
-        return this.sectionRepository.save(section);
+        return this.sectionDao.save(section);
     }
 
     public void deleteById(final UUID id) {
-        this.sectionRepository.deleteById(id);
+        this.sectionDao.deleteById(id);
     }
 }

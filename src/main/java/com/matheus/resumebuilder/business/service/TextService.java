@@ -1,7 +1,7 @@
-package com.matheus.resumebuilder.service;
+package com.matheus.resumebuilder.business.service;
 
-import com.matheus.resumebuilder.model.Text;
-import com.matheus.resumebuilder.repository.TextRepository;
+import com.matheus.resumebuilder.application.dao.TextDao;
+import com.matheus.resumebuilder.business.entity.Text;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -12,26 +12,26 @@ import java.util.UUID;
 public class TextService {
 
     @Autowired
-    private TextRepository textRepository;
+    private TextDao textDao;
 
     public List<Text> findAll() {
-        return this.textRepository.findAll();
+        return this.textDao.findAll();
     }
 
     public Text findById(final UUID id) {
-        return this.textRepository.findById(id).orElse(null);
+        return this.textDao.findById(id).orElse(null);
     }
 
     public Text create(final Text text) {
-        return this.textRepository.save(text);
+        return this.textDao.save(text);
     }
 
     public Text update(final UUID id, final Text text) {
         text.setId(id);
-        return this.textRepository.save(text);
+        return this.textDao.save(text);
     }
 
     public void deleteById(final UUID id) {
-        this.textRepository.deleteById(id);
+        this.textDao.deleteById(id);
     }
 }
