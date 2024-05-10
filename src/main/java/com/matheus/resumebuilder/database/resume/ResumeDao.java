@@ -1,6 +1,6 @@
-package com.matheus.resumebuilder.application.dao;
+package com.matheus.resumebuilder.database.resume;
 
-import com.matheus.resumebuilder.business.entity.Resume;
+import com.matheus.resumebuilder.domain.entity.resume.Resume;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

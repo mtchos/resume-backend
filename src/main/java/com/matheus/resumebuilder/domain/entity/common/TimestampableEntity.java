@@ -1,4 +1,4 @@
-package com.matheus.resumebuilder.business.entity.common;
+package com.matheus.resumebuilder.domain.entity.common;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;

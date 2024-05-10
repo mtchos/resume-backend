@@ -1,7 +1,7 @@
-package com.matheus.resumebuilder.business.service;
+package com.matheus.resumebuilder.domain.service;
 
-import com.matheus.resumebuilder.application.dao.PersonDao;
-import com.matheus.resumebuilder.business.entity.Person;
+import com.matheus.resumebuilder.database.user.PersonDao;
+import com.matheus.resumebuilder.domain.entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

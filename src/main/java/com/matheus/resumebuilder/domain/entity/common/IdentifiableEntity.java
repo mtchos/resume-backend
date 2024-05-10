@@ -1,4 +1,4 @@
-package com.matheus.resumebuilder.business.entity.common;
+package com.matheus.resumebuilder.domain.entity.common;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.persistence.GeneratedValue;
@@ -12,10 +12,6 @@ import java.util.UUID;
 @Data
 @MappedSuperclass
 public abstract class IdentifiableEntity implements Serializable {
-
-    private String getLowercaseClassName() {
-        return getClass().getSimpleName().toLowerCase();
-    }
 
     @Id
     @GeneratedValue

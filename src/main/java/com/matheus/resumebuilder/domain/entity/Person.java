@@ -1,7 +1,8 @@
-package com.matheus.resumebuilder.business.entity;
+package com.matheus.resumebuilder.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.matheus.resumebuilder.business.entity.common.TimestampableEntity;
+import com.matheus.resumebuilder.domain.entity.common.TimestampableEntity;
+import com.matheus.resumebuilder.domain.entity.resume.Resume;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;

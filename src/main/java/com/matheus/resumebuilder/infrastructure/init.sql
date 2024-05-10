@@ -5,16 +5,17 @@ CREATE DATABASE resumebuilder;
 
 \c resumebuilder;
 
-CREATE TYPE title_content AS
+
+CREATE TYPE titled_contents AS
 (
-    title   VARCHAR(50),
-    content VARCHAR(300)
+    title VARCHAR(50),
+    contents VARCHAR(300)[]
 );
 
-CREATE TYPE title_contents AS
+CREATE TYPE titled_keywords AS
 (
     title    VARCHAR(50),
-    contents VARCHAR(50)[]
+    keywords VARCHAR(50)[]
 );
 
 CREATE TABLE IF NOT EXISTS person
@@ -48,7 +49,7 @@ CREATE TABLE IF NOT EXISTS info
     resume_id  UUID        NOT NULL REFERENCES resume (id),
     created_at TIMESTAMP WITHOUT TIME ZONE,
     updated_at TIMESTAMP WITHOUT TIME ZONE,
-    header     VARCHAR(50) NOT NULL,
+    header     VARCHAR(50),
     phone      VARCHAR(50),
     location   VARCHAR(50),
     email      VARCHAR(50),
@@ -73,7 +74,7 @@ CREATE TABLE IF NOT EXISTS skill
     created_at TIMESTAMP WITHOUT TIME ZONE,
     updated_at TIMESTAMP WITHOUT TIME ZONE,
     header     VARCHAR(50) NOT NULL,
-    content    title_contents
+    content    titled_contents
 );
 
 CREATE TABLE IF NOT EXISTS experience
@@ -105,7 +106,7 @@ CREATE TABLE IF NOT EXISTS education
     start_date    DATE,
     end_date      DATE,
     bullet_points VARCHAR(300)[],
-    courses       title_contents
+    courses       titled_contents
 );
 
 CREATE TABLE IF NOT EXISTS course
@@ -127,5 +128,5 @@ CREATE TABLE IF NOT EXISTS language
     resume_id  UUID NOT NULL REFERENCES resume (id),
     created_at TIMESTAMP WITHOUT TIME ZONE,
     updated_at TIMESTAMP WITHOUT TIME ZONE,
-    languages  title_content
+    languages  titled_keywords
 );

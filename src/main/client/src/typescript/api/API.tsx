@@ -1,4 +1,5 @@
 import axios from "axios";
+
 const ENVIRONMENT = (process.env.NODE_ENV || "development")
 const DOMAIN = (ENVIRONMENT !== "production") ? "http://localhost:8081/" : "production"; // TODO: add production endpoint.
 
