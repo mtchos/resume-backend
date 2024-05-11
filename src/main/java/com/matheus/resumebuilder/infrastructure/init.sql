@@ -5,7 +5,6 @@ CREATE DATABASE resumebuilder;
 
 \c resumebuilder;
 
-
 CREATE TYPE titled_contents AS
 (
     title VARCHAR(50),
@@ -36,9 +35,9 @@ CREATE TABLE IF NOT EXISTS resume
     person_id  UUID        NOT NULL REFERENCES person (id),
     created_at TIMESTAMP WITHOUT TIME ZONE,
     updated_at TIMESTAMP WITHOUT TIME ZONE,
-    code       VARCHAR(50) NOT NULL,
-    header     VARCHAR(50) NOT NULL,
-    role       VARCHAR(50) NOT NULL,
+    code       VARCHAR(50),
+    header     VARCHAR(50),
+    role       VARCHAR(50),
     is_active  BOOLEAN DEFAULT TRUE
 );
 

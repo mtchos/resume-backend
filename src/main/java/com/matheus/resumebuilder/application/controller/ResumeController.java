@@ -5,6 +5,7 @@ import com.matheus.resumebuilder.domain.entity.resume.Resume;
 import com.matheus.resumebuilder.domain.service.PersonService;
 import com.matheus.resumebuilder.domain.service.ResumeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,30 +22,41 @@ public class ResumeController {
     @Autowired PersonService personService;
 
     @GetMapping
-    public List<Resume> findAll() {
-        return this.resumeService.findAll();
+    public ResponseEntity<List<Resume>> findAll() {
+        List<Resume> resumes = resumeService.findAll();
+        return ResponseEntity.ok(resumes);
     }
 
-    @GetMapping("{id}")
-    public Resume findById(@PathVariable final UUID id) {
-        return this.resumeService.findById(id);
+    @GetMapping("{personId}")
+    public ResponseEntity<List<Resume>> findByPersonId(@PathVariable() UUID personId) {
+        List<Resume> resumesByPersonId = resumeService.findByPersonId(personId);
+        return ResponseEntity.ok(resumesByPersonId);
+    }
+
+    @GetMapping("{resumeId}")
+    public ResponseEntity<Resume> findById(@PathVariable final UUID resumeId) {
+        Resume resume = this.resumeService.findById(resumeId);
+        return ResponseEntity.ok(resume);
     }
 
     @PostMapping
-    public Resume create(@RequestBody final Resume resume) {
-        Person person = personService.findById(resume.getPerson().getId());
+    public ResponseEntity<Resume> create(@RequestParam final UUID personId, @RequestBody final Resume resume) {
+        Person person = this.personService.findById(personId);
         resume.setPerson(person);
-        return this.resumeService.create(resume);
+        resume.setId(null);
+        Resume resumeCreated = this.resumeService.create(resume);
+        return ResponseEntity.status(HttpStatus.CREATED).body(resumeCreated);
     }
 
-    @PutMapping("{id}")
-    public Resume update(@PathVariable final UUID id, @RequestBody final Resume resume) {
-        return this.resumeService.update(id, resume);
+    @PutMapping
+    public ResponseEntity<Resume> update(@RequestBody final Resume resume) {
+        Resume resumeUpdated = this.resumeService.update(resume);
+        return ResponseEntity.ok(resumeUpdated);
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<?> deleteById(@PathVariable final UUID id) {
-        this.resumeService.deleteById(id);
-        return ResponseEntity.ok().build();
+    @DeleteMapping("{resumeId}")
+    public ResponseEntity<?> deleteById(@PathVariable final UUID resumeId) {
+        this.resumeService.deleteById(resumeId);
+        return ResponseEntity.noContent().build();
     }
 }

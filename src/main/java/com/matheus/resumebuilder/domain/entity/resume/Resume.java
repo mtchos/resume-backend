@@ -17,10 +17,6 @@ public class Resume extends TimestampableEntity {
     @JsonIgnoreProperties("resumes")
     private Person person;
 
-//    @OneToMany(mappedBy = "resume", cascade = CascadeType.ALL)
-//    @JsonIgnoreProperties("resume")
-//    private List<Section> sections;
-
     private String code;
 
     private String header;

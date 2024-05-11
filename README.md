@@ -19,7 +19,7 @@ The project is divided in three parts.
 Create the docker image:
 
 ```bash
-$ docker build -t resume-database-image -f src/main/java/com/matheus/resumebuilder/infrastructure/database/Dockerfile .
+$ docker build -t resume-database-image -f src/main/java/com/matheus/resumebuilder/infrastructure/Dockerfile .
 ```
 
 Run the container:
@@ -31,7 +31,7 @@ $ docker run --rm --name resume-database-container -p 5432:5432 resume-database-
 Run the database initialization script:
 
 ```bash
-docker exec -i resume-database-container psql -U postgres < src/main/java/com/matheus/resumebuilder/infrastructure/database/init.sql
+docker exec -i resume-database-container psql -U postgres < src/main/java/com/matheus/resumebuilder/infrastructure/init.sql
 ```
 
 ## License
