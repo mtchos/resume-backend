@@ -1,4 +1,4 @@
-package com.matheus.resumebuilder.database.user;
+package com.matheus.resumebuilder.database;
 
 import com.matheus.resumebuilder.domain.entity.Person;
 import org.springframework.data.jpa.repository.JpaRepository;

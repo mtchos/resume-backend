@@ -7,8 +7,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -18,7 +16,7 @@ import java.util.UUID;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person {
+public class Resume {
 
     @Id
     private UUID id;
@@ -33,16 +31,15 @@ public class Person {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
-    private List<Resume> resumes = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "person_id")
+    private Person person;
 
-    private String username;
+    private String code;
 
-    private String firstName;
+    private String header;
 
-    private String lastName;
+    private String role;
 
-    private String email;
-
-    private String password;
+    private Boolean isActive;
 }

@@ -1,24 +1,19 @@
-package com.matheus.resumebuilder.domain.entity;
+package com.matheus.resumebuilder.domain.entity.section;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.matheus.resumebuilder.domain.entity.Resume;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
+@Data
 @Entity
-@Getter
-@Setter
-@With
-@EqualsAndHashCode
-@AllArgsConstructor
-@NoArgsConstructor
-public class Person {
+public class Summary {
 
     @Id
     private UUID id;
@@ -33,16 +28,12 @@ public class Person {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
-    private List<Resume> resumes = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "resume_id")
+    @JsonIgnore
+    private Resume resume;
 
-    private String username;
+    private String header = "Summary";
 
-    private String firstName;
-
-    private String lastName;
-
-    private String email;
-
-    private String password;
+    private String content;
 }

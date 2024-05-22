@@ -1,6 +1,6 @@
-package com.matheus.resumebuilder.database.resume.section;
+package com.matheus.resumebuilder.database.section;
 
-import com.matheus.resumebuilder.domain.entity.resume.Resume;
+import com.matheus.resumebuilder.domain.entity.Resume;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
