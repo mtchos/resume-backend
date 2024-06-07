@@ -1,11 +1,11 @@
 import Person from "./component/Person.tsx";
 
 function Application() {
-  return (
-    <>
-      <Person />
-    </>
-  );
+    return (
+        <>
+            <Person/>
+        </>
+    );
 }
 
 export default Application;
