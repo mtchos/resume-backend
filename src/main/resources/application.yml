@@ -1,12 +1,16 @@
 server:
-    port: 8081
+  port: 8081
 spring:
-    datasource:
-        driver-class-name: org.postgresql.Driver
-        password: postgres
-        url: jdbc:postgresql://localhost:5432/resumebuilder
-        username: postgres
-    jpa:
-        hibernate:
-            naming:
-                implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/resumebuilder
+    username: postgres
+  jpa:
+    properties:
+      javax:
+        persistence:
+          provider: org.hibernate.jpa.HibernatePersistenceProvider
+      hibernate:
+        naming:
+          implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl

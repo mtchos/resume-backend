@@ -1,9 +1,11 @@
 package com.matheus.resumebuilder.application.dto;
 
-import jakarta.persistence.Entity;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.With;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
@@ -15,9 +17,9 @@ public class ResumeDto {
 
     private UUID id;
 
-    private LocalDateTime createdAt;
+    private String createdAt;
 
-    private LocalDateTime updatedAt;
+    private String updatedAt;
 
     private UUID personId;
 

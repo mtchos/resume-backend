@@ -1,7 +1,6 @@
 package com.matheus.resumebuilder.domain.service;
 
 import com.matheus.resumebuilder.database.ResumeDao;
-import com.matheus.resumebuilder.database.PersonDao;
 import com.matheus.resumebuilder.domain.entity.Resume;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +14,6 @@ public class ResumeService {
 
     @Autowired
     private ResumeDao resumeDao;
-
-    @Autowired
-    private PersonDao personDao;
 
     public List<Resume> findAll() {
         return this.resumeDao.findAll();
@@ -33,13 +29,12 @@ public class ResumeService {
 
     @Transactional
     public Resume create(final Resume resume) {
-        resume.setId(null);
-        return this.resumeDao.save(resume);
+        return this.resumeDao.saveAndFlush(resume);
     }
 
     @Transactional
     public Resume update(final Resume resume) {
-        return this.resumeDao.save(resume);
+        return this.resumeDao.saveAndFlush(resume);
     }
 
     @Transactional

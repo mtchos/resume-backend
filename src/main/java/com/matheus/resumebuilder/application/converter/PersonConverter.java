@@ -1,8 +1,8 @@
 package com.matheus.resumebuilder.application.converter;
 
 import com.matheus.resumebuilder.application.dto.PersonDto;
-import com.matheus.resumebuilder.domain.entity.Resume;
 import com.matheus.resumebuilder.domain.entity.Person;
+import com.matheus.resumebuilder.domain.entity.Resume;
 import com.matheus.resumebuilder.domain.service.ResumeService;
 import org.springframework.context.annotation.Configuration;
 
@@ -49,6 +49,8 @@ public class PersonConverter {
                 .toList();
         return new PersonDto()
                 .withId(person.getId())
+                .withCreatedAt(person.getCreatedAt().toString())
+                .withUpdatedAt(person.getUpdatedAt().toString())
                 .withResumesIds(resumesIds)
                 .withUsername(person.getUsername())
                 .withFirstName(person.getFirstName())
