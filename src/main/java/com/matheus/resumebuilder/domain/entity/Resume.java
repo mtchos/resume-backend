@@ -29,16 +29,16 @@ public class Resume {
     @Id
     private UUID id;
 
+    @ManyToOne
+    @JoinColumn(name = "person_id")
+    private Person person;
+
     @CreationTimestamp
     @Column(updatable = false)
     private Instant createdAt;
 
     @UpdateTimestamp
     private Instant updatedAt;
-
-    @ManyToOne
-    @JoinColumn(name = "person_id")
-    private Person person;
 
     private String code;
 

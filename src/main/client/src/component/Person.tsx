@@ -1,16 +1,17 @@
-import {useEffect, useState} from "react";
-import {PersonService} from "../service/PersonService.tsx";
-import {IPerson} from "./IPerson.tsx";
+import { useEffect, useState } from "react";
+import { PersonAPI } from "../api/PersonAPI.tsx";
+import { PersonType } from "./PersonType.tsx";
 
 export default function Person() {
-    const [person, setPerson] = useState<IPerson>();
+    const [ person, setPerson ] = useState<PersonType>();
 
     const findAll = () => {
-        PersonService.findAll()
-            .then(res => {
-                const onePerson = res.data[0];
-                setPerson(onePerson);
-            });
+        try {
+            const response: any = PersonAPI.findAll();
+            setPerson(response[0])
+        } catch (error: any) {
+            console.error(error)
+        }
     };
 
     useEffect(() => findAll(), []);

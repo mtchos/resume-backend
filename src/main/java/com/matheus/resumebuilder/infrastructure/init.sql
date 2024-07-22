@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS skill
     created_at TIMESTAMP WITH TIME ZONE,
     updated_at TIMESTAMP WITH TIME ZONE,
     header     VARCHAR(50) NOT NULL,
-    content    titled_contents
+    content    titled_keywords
 );
 
 CREATE TABLE IF NOT EXISTS experience

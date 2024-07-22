@@ -1,10 +1,10 @@
 package com.matheus.resumebuilder.domain.entity.section;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.matheus.resumebuilder.database.pgtype.TitledContents;
+import com.matheus.resumebuilder.database.postgres.types.TitledContents;
 import com.matheus.resumebuilder.domain.entity.Resume;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -15,6 +15,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -24,20 +25,18 @@ public class Education {
     @Id
     private UUID id;
 
-    @CreationTimestamp
-    @Column(nullable = false, updatable = false)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Instant createdAt;
-
-    @UpdateTimestamp
-    @Column(nullable = false)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Instant updatedAt;
-
     @ManyToOne
     @JoinColumn(name = "resume_id")
     @JsonIgnore
     private Resume resume;
+
+    @CreationTimestamp
+    @Column(updatable = false)
+    private Instant createdAt;
+
+    @UpdateTimestamp
+    @Column(nullable = false)
+    private Instant updatedAt;
 
     private String header = "Education";
 
@@ -51,5 +50,8 @@ public class Education {
 
     private LocalDate endDate;
 
-    private TitledContents bulletPoints;
+    @ElementCollection
+    private List<String> bulletPoints;
+
+    private TitledContents courses;
 }

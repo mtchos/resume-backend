@@ -32,15 +32,15 @@ public class Person implements Serializable {
     @Id
     private UUID id;
 
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    private List<Resume> resumes = new ArrayList<>();
+
     @CreationTimestamp
     @Column(updatable = false)
     private Instant createdAt;
 
     @UpdateTimestamp
     private Instant updatedAt;
-
-    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
-    private List<Resume> resumes = new ArrayList<>();
 
     private String username;
 

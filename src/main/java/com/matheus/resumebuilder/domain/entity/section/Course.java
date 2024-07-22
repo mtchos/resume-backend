@@ -1,6 +1,5 @@
 package com.matheus.resumebuilder.domain.entity.section;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.matheus.resumebuilder.domain.entity.Resume;
 import jakarta.persistence.Column;
@@ -23,20 +22,18 @@ public class Course {
     @Id
     private UUID id;
 
-    @CreationTimestamp
-    @Column(nullable = false, updatable = false)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Instant createdAt;
-
-    @UpdateTimestamp
-    @Column(nullable = false)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Instant updatedAt;
-
     @ManyToOne
     @JoinColumn(name = "resume_id")
     @JsonIgnore
     private Resume resume;
+
+    @CreationTimestamp
+    @Column(updatable = false)
+    private Instant createdAt;
+
+    @UpdateTimestamp
+    @Column(nullable = false)
+    private Instant updatedAt;
 
     private String header = "Courses";
 

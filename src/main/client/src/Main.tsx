@@ -4,6 +4,6 @@ import Application from "./Application.tsx";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        <Application/>
+        <Application />
     </React.StrictMode>,
 )

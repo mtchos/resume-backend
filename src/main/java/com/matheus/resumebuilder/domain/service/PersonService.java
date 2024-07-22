@@ -2,7 +2,6 @@ package com.matheus.resumebuilder.domain.service;
 
 import com.matheus.resumebuilder.database.PersonDao;
 import com.matheus.resumebuilder.domain.entity.Person;
-import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,9 +14,6 @@ public class PersonService {
 
     @Autowired
     private PersonDao personDao;
-
-    @Autowired
-    private EntityManager entityManager;
 
     public List<Person> findAll() {
         return this.personDao.findAll();

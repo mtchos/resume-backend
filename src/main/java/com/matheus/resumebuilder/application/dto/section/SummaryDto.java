@@ -1,4 +1,4 @@
-package com.matheus.resumebuilder.application.dto;
+package com.matheus.resumebuilder.application.dto.section;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.With;
 
+import java.time.Instant;
 import java.util.UUID;
 
 @Getter
@@ -13,21 +14,17 @@ import java.util.UUID;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class ResumeDto {
+public class SummaryDto {
 
     private UUID id;
 
-    private UUID personId;
+    private UUID resumeId;
 
-    private String createdAt;
+    private Instant createdAt;
 
-    private String updatedAt;
-
-    private String code;
+    private Instant updatedAt;
 
     private String header;
 
-    private String role;
-
-    private Boolean isActive;
+    private String content;
 }

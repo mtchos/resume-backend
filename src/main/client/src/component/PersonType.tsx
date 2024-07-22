@@ -1,6 +1,6 @@
-import {v4 as uuid} from "uuid";
+import { v4 as uuid } from "uuid";
 
-export type IPerson = {
+export type PersonType = {
     id: typeof uuid;
     resumes: string[];
     username: string;

@@ -1,4 +1,4 @@
-package com.matheus.resumebuilder.database.pgtype;
+package com.matheus.resumebuilder.database.postgres.types;
 
 import jakarta.persistence.Embeddable;
 import lombok.Data;
@@ -7,9 +7,9 @@ import java.util.List;
 
 @Data
 @Embeddable
-public class TitledKeywords {
+public class TitledContents {
 
     private String title;
 
-    private List<String> keywords;
+    private List<String> contents;
 }
